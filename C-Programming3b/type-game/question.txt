@@ -1,0 +1,11 @@
+I have an apple.
+What do you mean?
+Yes, we can!
+Have a nice day!
+Python is the main scripting language used at Google.
+Avoids undesirable conversions.
+Avoid using Run Time Type Information.
+Have a nice day!
+You got a mail.
+Good morning!
+How are you?

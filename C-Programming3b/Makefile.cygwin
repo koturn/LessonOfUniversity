@@ -1,0 +1,41 @@
+### ========== Makefile for Cygwin ========== ###
+MAKE        = make
+TARGET1_DIR = calc-game
+TARGET2_DIR = tetris
+TARGET3_DIR = type-game
+TARGET4_DIR = number-game
+TARGET1     = $(TARGET1_DIR)/server.exe $(TARGET1_DIR)/client.exe
+TARGET2     = $(TARGET2_DIR)/server.exe $(TARGET2_DIR)/client.exe
+TARGET3     = $(TARGET3_DIR)/server.exe $(TARGET3_DIR)/client.exe
+TARGET4     = $(TARGET4_DIR)/server.exe $(TARGET4_DIR)/client.exe
+
+
+.PHONY : all
+all : $(TARGET1) $(TARGET2) $(TARGET3) $(TARGET4)
+
+$(TARGET1) :
+	$(MAKE) -C $(TARGET1_DIR) -f Makefile.cygwin
+
+$(TARGET2) :
+	$(MAKE) -C $(TARGET2_DIR) -f Makefile.cygwin
+
+$(TARGET3) :
+	$(MAKE) -C $(TARGET3_DIR) -f Makefile.cygwin
+
+$(TARGET4) :
+	$(MAKE) -C $(TARGET4_DIR) -f Makefile.cygwin
+
+
+.PHONY : clean
+clean :
+	$(MAKE) -C $(TARGET1_DIR) clean
+	$(MAKE) -C $(TARGET2_DIR) clean
+	$(MAKE) -C $(TARGET3_DIR) clean
+	$(MAKE) -C $(TARGET4_DIR) clean
+
+.PHONY : objclean
+objclean :
+	$(MAKE) -C $(TARGET1_DIR) objclean
+	$(MAKE) -C $(TARGET2_DIR) objclean
+	$(MAKE) -C $(TARGET3_DIR) objclean
+	$(MAKE) -C $(TARGET4_DIR) objclean
