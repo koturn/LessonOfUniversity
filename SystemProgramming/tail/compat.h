@@ -8,14 +8,14 @@
  * @author    koturn 0;
  * @date      2013 05/19
  * @file      compat.h
- * @version   0.1.0.0
+ * @version   0.1.1.0
  * @attention 安全ではない置き換えがあるので、注意すること
  */
 #ifndef COMPAT_H
 #define COMPAT_H
 
 
-#if _MFC_VER  >= 0x0500 // Visual C++ (2005以降) のコンパイラならば
+#ifdef _MSC_VER >= 1400  // Visual C++ (2005以降) のコンパイラならば
 
 
 #define SCAN_S_ARG(arg)   (arg), (_countof(arg))
@@ -24,8 +24,8 @@
 /* ------------------------------------------------------------
  * 入出力関係
  * ------------------------------------------------------------ */
-#define printf(format, ...)  printf_s(format, ##__VA_ARGS__)
-#define gets(dst)            gets_s(dst, _countof(dst) - 1)
+#define printf(fmt, ...)           printf_s(fmt, ##__VA_ARGS__)
+#define gets(dst)                  gets_s(dst, _countof(dst) - 1)
 #define FOPEN(fp, filename, mode)  (fopen_s(&(fp), filename, mode), fp)
 
 
@@ -117,6 +117,7 @@
   (rand(randomValue), *(randomValue))
 
 #endif
+
 
 
 #if defined(WIN16) || defined(_WIN16) || defined(__WIN16) || defined(__WIN16__)   \
